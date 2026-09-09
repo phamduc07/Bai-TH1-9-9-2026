@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #man-hinh {
+            width: 150px;
+            height: 30px;
+            border: 1px solid black;
+            font-size: 20px;
+            text-align: right;
+            margin-bottom: 5px;
+        }
+        button {
+            width: 35px;
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="man-hinh">0</div>
+
+    <div>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+    </div>
+    <div>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+    </div>
+    <div>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>*</button>
+    </div>
+    <div>
+        <button>0</button>
+        <button>/</button>
+        <button>=</button>
+        <button>Clear</button>
+    </div>
+
+    <script>
+        const manHinh = document.getElementById("man-hinh");
+        const nutBam = document.querySelectorAll("button");
+
+        nutBam.forEach(nut => {
+            nut.addEventListener("click", function() {
+                const kyTu = nut.innerText;
+
+                if (kyTu === "Clear") {
+                    manHinh.innerText = "0";
+                } else if (kyTu === "=") {
+                    manHinh.innerText = eval(manHinh.innerText);
+                } else {
+                    if (manHinh.innerText === "0") {
+                        manHinh.innerText = kyTu;
+                    } else {
+                        manHinh.innerText += kyTu;
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
