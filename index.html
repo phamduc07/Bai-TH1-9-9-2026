@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang giới thiệu tương tác</title>
+</head>
+<body>
+
+    <header>
+        <h1>Trang cá nhân của tôi</h1>
+    </header>
+
+    <nav>
+        <a href="#">Trang chủ</a> | <a href="#">Giới thiệu</a> | <a href="#">Liên hệ</a>
+    </nav>
+
+    <main>
+        
+        <p id="loi-chao"></p>
+
+        <!-- Nút bấm đổi màu nền -->
+        <button id="btn-doi-mau">Đổi màu nền</button>
+    </main>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    
+    <script>
+        // 1. Dùng đối tượng Date để hiển thị lời chào theo buổi (sáng/chiều/tối)
+        const gioHienTai = new Date().getHours();
+        const theChao = document.getElementById("loi-chao");
+
+        if (gioHienTai < 12) {
+            theChao.innerText = "Chào buổi sáng!";
+        } else if (gioHienTai < 18) {
+            theChao.innerText = "Chào buổi chiều!";
+        } else {
+            theChao.innerText = "Chào buổi tối!";
+        }
+        const nutDoiMau = document.getElementById("btn-doi-mau");
+
+        nutDoiMau.addEventListener("click", function() {
+            if (document.body.style.backgroundColor === "lightblue") {
+                document.body.style.backgroundColor = "#ffffff";
+            } else {
+                document.body.style.backgroundColor = "lightblue";
+            }
+        });
+    </script>
+
+</body>
+</html>
